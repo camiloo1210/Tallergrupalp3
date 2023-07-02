@@ -53,63 +53,64 @@ printf("La opcion que escogiste fue la numero %i\n",opcion);
 printf("El precio total del servicio es de : %f",Precio(opcion));
 }
 
+
 int main() {
     int opcion;
 
-    while (1) {
-       
-            struct Usuario usuario1;
-            printf("Ingrese su nombre.\n");
-            gets(usuario1.Nombre);
-            printf("Ingrese su direccion.\n");
-            gets(usuario1.Direccion);
-            printf("Ingrese su cedula.\n");
-            gets(usuario1.Cedula);
-            //Division de informacion
-            struct Factura factura1;
-            printf("Ingrese la marca de su ordenador.\n");
-            gets(factura1.Marca);
-            printf("Ingrese el modelo de su ordenador.\n");
-            gets(factura1.Modelo);
-            printf("Ingrese alguna observacion a tener en cuenta para el servicio de su ordenador.\n");
-            gets(factura1.Observaciones);
-            printf("\n");
-            if (1)
-            {
-            printf("Menú de opciones:\n");
-            printf("1. Mantenimiento del ordenador\n");
-            printf("2. Recuperacion de datos\n");
-            printf("3. Formateo del ordenador\n");
-            printf("4. Salir\n");
-            printf("Seleccione una opción: ");
-            scanf("%d", &opcion);
+    struct Usuario usuario1;
+    printf("Ingrese su nombre.\n");
+    gets(usuario1.Nombre);
+    printf("Ingrese su direccion.\n");
+    gets(usuario1.Direccion);
+    printf("Ingrese su cedula.\n");
+    gets(usuario1.Cedula);
+    // Division de informacion
+    struct Factura factura1;
+    printf("Ingrese la marca de su ordenador.\n");
+    gets(factura1.Marca);
+    printf("Ingrese el modelo de su ordenador.\n");
+    gets(factura1.Modelo);
+    printf("Ingrese alguna observacion a tener en cuenta para el servicio de su ordenador.\n");
+    gets(factura1.Observaciones);
+    printf("\n");
+    while (1)
+    {
+        printf("\n");
+        printf("Menú de opciones:\n");
+        printf("1. Mantenimiento del ordenador\n");
+        printf("2. Recuperacion de datos\n");
+        printf("3. Formateo del ordenador\n");
+        printf("4. Salir\n");
+        printf("Seleccione una opción: ");
+        scanf("%d", &opcion);
 
-                switch (opcion) {
-                    case 1:
-                        printf("Ha seleccionado el mantenimiento del ordenador.\n");
-                        printf("El precio por el servicio seleccionado es %.2f\n",Precio(opcion));
-                        break;
-                    case 2:
-                        printf("Ha seleccionado la recuperacion de datos.\n");
-                        printf("El precio por el servicio seleccionado es %.2f\n",Precio(opcion));
-                        break;
-                    case 3:
-                        printf("Ha seleccionado el formateo del ordenador.\n");
-                        printf("El precio por el servicio seleccionado es %.2f\n",Precio(opcion));
-                        break;
-                    case 4:
-                        printf("Saliendo del programa...\n");
-                        return 0;
-                    default:
-                        printf("Opción inválida. Por favor, seleccione una opción válida.\n");
-                        break;
-                    }
-            }
-            if (opcion==1 || opcion==2 || opcion==3  )//Solo entra a imprimir si alguna de las opciones encaja con la condicion 
-            {
-              Factura1(factura1,usuario1,opcion);
-              return 0;
-            } 
+        switch (opcion)
+        {
+        case 1:
+            printf("Ha seleccionado el mantenimiento del ordenador.\n");
+            printf("El precio por el servicio seleccionado es %.2f\n", Precio(opcion));
+            break;
+        case 2:
+            printf("Ha seleccionado la recuperacion de datos.\n");
+            printf("El precio por el servicio seleccionado es %.2f\n", Precio(opcion));
+            break;
+        case 3:
+            printf("Ha seleccionado el formateo del ordenador.\n");
+            printf("El precio por el servicio seleccionado es %.2f\n", Precio(opcion));
+            break;
+        case 4:
+            printf("Saliendo del programa...\n");
+            return 0;
+        default:
+            printf("Opción inválida. Por favor, seleccione una opción válida.\n");
+            break;
+        }
+
+        if (opcion == 1 || opcion == 2 || opcion == 3) // Solo entra a imprimir si alguna de las opciones encaja con la condicion
+        {
+            Factura1(factura1, usuario1, opcion); // Imprime la funcion void de factura1
+            return 0;
+        }
     }
 
     return 0;
