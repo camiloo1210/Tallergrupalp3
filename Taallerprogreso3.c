@@ -16,6 +16,29 @@ struct Factura
 
 };
 
+float Mantenimiento(opcion)
+{
+    if (opcion==1)
+    {
+        return 30.50;
+    }
+}
+
+float Recuperacion(opcion){
+    if (opcion==2)
+    {
+        return 23.75;
+    }
+}
+float Formateo(opcion)
+{
+    if (opcion==3)
+    {
+        return 15.50;
+    }
+    
+}
+
 int main() {
     int opcion;
 
