@@ -64,15 +64,18 @@ int main() {
             switch (opcion) {
                 case 1:
                     printf("Ha seleccionado el mantenimiento del ordenador.\n");
-                    // Código para la opción 1
+                    printf("El precio por el servicio seleccionado es %f",Mantenimiento(opcion));
+                    return 0;
                     break;
                 case 2:
                     printf("Ha seleccionado la recuperacion de datos.\n");
-                    // Código para la opción 2
+                    printf("El precio por el servicio seleccionado es %f",Recuperacion(opcion));
+                    return 0;
                     break;
                 case 3:
                     printf("Ha seleccionado el formateo del ordenador.\n");
-                    // Código para la opción 3
+                    printf("El precio por el servicio seleccionado es %f",Formateo(opcion));
+                    return 0;
                     break;
                 case 4:
                     printf("Saliendo del programa...\n");
