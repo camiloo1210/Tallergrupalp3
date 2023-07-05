@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 struct Factura// Estructura de la informacion para la factura
 {
@@ -14,8 +15,9 @@ struct Usuario// Estructura de la informacion del usuario
     char Direccion[35];
     char Cedula [10];
     };
-float Precio (opcion)//Funcion que devuelve el valor del mantenimiento
+float Precio (int opcion)//Funcion que devuelve el valor del mantenimiento
 {
+    //Dependiendo de la opcion se regresa el valor adecuado
     if (opcion == 1)
     {
         return 30.50;
@@ -53,10 +55,15 @@ printf("La opcion que escogiste fue la numero %i\n",opcion);
 printf("El precio total del servicio es de : %f",Precio(opcion));
 }
 
+void Almacenamiento_Informacion(struct Factura factura1,struct Usuario usuario1,int opcion){//Funcion para guardar las respuestas de los usuarios en el archivo 
+FILE *archivo;
+archivo=fopen("registro.txt","a");
+fprintf(archivo,"Nuevo cliente: %s ; %s ; %s ; %s , %s ; %s ; %i ; %.2f\n",usuario1.Nombre,usuario1.Direccion,usuario1.Cedula,factura1.Marca,factura1.Modelo,factura1.Observaciones,opcion,Precio(opcion));
+fclose(archivo);
+}
 
 int main() {
     int opcion;
-
     struct Usuario usuario1;
     printf("Ingrese su nombre.\n");
     gets(usuario1.Nombre);
@@ -87,18 +94,25 @@ int main() {
         switch (opcion)
         {
         case 1:
+            printf("\n");
+            printf("\n");
             printf("Ha seleccionado el mantenimiento del ordenador.\n");
             printf("El precio por el servicio seleccionado es %.2f\n", Precio(opcion));
             break;
         case 2:
+            printf("\n");
+            printf("\n");
             printf("Ha seleccionado la recuperacion de datos.\n");
             printf("El precio por el servicio seleccionado es %.2f\n", Precio(opcion));
             break;
         case 3:
+            printf("\n");
+            printf("\n");
             printf("Ha seleccionado el formateo del ordenador.\n");
             printf("El precio por el servicio seleccionado es %.2f\n", Precio(opcion));
             break;
         case 4:
+            printf("\n");
             printf("Saliendo del programa...\n");
             return 0;
         default:
@@ -109,6 +123,7 @@ int main() {
         if (opcion == 1 || opcion == 2 || opcion == 3) // Solo entra a imprimir si alguna de las opciones encaja con la condicion
         {
             Factura1(factura1, usuario1, opcion); // Imprime la funcion void de factura1
+            Almacenamiento_Informacion(factura1,usuario1,opcion);//Guarda la informacion dada por el usuario dentro de un archivo plano
             return 0;
         }
     }
