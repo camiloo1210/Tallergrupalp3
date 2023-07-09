@@ -55,10 +55,10 @@ printf("La opcion que escogiste fue la numero %i\n",opcion);
 printf("El precio total del servicio es de : %f",Precio(opcion));
 }
 
-void Almacenamiento_Informacion(struct Factura factura1,struct Usuario usuario1,int opcion){//Funcion para guardar las respuestas de los usuarios en el archivo 
+void Almacenamiento_Informacion(struct Factura factura1,struct Usuario usuario1,int opcion){//Funcion para guardar las respuestas de los usuarios en el archivo plano llamado registro.txt
 FILE *archivo;
-archivo=fopen("registro.txt","a");
-fprintf(archivo,"Nuevo cliente: %s ; %s ; %s ; %s , %s ; %s ; %i ; %.2f\n",usuario1.Nombre,usuario1.Direccion,usuario1.Cedula,factura1.Marca,factura1.Modelo,factura1.Observaciones,opcion,Precio(opcion));
+archivo=fopen("registro.csv","a");// Se uso a por la w crea el archivo desde 0 cada vez que se ejecuta, por otro lado el a no borra el archivo solo agrega mas informacion al archivo
+fprintf(archivo,"%s;%s;%s;%s,%s;%s;%i;%.2f\n",usuario1.Nombre,usuario1.Direccion,usuario1.Cedula,factura1.Marca,factura1.Modelo,factura1.Observaciones,opcion,Precio(opcion));
 fclose(archivo);
 }
 
@@ -83,12 +83,12 @@ int main() {
     while (1)
     {
         printf("\n");
-        printf("Menú de opciones:\n");
+        printf("Menu de opciones:\n");
         printf("1. Mantenimiento del ordenador\n");
         printf("2. Recuperacion de datos\n");
         printf("3. Formateo del ordenador\n");
         printf("4. Salir\n");
-        printf("Seleccione una opción: ");
+        printf("Seleccione una opcion: ");
         scanf("%d", &opcion);
 
         switch (opcion)
@@ -116,7 +116,7 @@ int main() {
             printf("Saliendo del programa...\n");
             return 0;
         default:
-            printf("Opción inválida. Por favor, seleccione una opción válida.\n");
+            printf("Opcion invalida. Por favor, seleccione una opcion valida.\n");
             break;
         }
 
